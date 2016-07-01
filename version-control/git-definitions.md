@@ -1,5 +1,6 @@
 # Git Definitions
-
+miles mcardle-coe
+1.5 assignment
 **Instructions: ** Define each of the following Git concepts.
 
 * What is version control?  Why is it useful?
