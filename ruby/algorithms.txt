@@ -31,7 +31,26 @@
 	-
 - Begin to fill kettle with water
 	-If kettle 50% full
-		-stop fillin
+		-stop filling
+	-else 
+		-continue filling
+- Put kettle on stovetop
+- Turn stove on High
+- acquire Cup
+	-place cup on counter
+- acquire teabag
+	-place teabag in cup
+-Check Kettle
+	- If steam escaping from kettle
+		-turn off stove
+	- else 
+		- wait 30 seconds and repreat check
+- Remove kettle from stove
+- Pour water in cup until 85% full
+	- if 85% full
+	- add sugar to taste
+-enjoy
+
 		
 		
 	
