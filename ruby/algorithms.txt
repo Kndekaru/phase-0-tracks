@@ -1,0 +1,40 @@
+1. Elevator
+
+-Approach Elevator door until three feet away then stop:
+-Look up about elevator coridoor until floor number is identified:
+	-Store current floor number in memory.
+-Determine destination floor from memory(whatever that may be)
+-Approach button panel
+	-If current floor > destination floor
+		-raise hand/appendage, and press the arrow pointing down.
+	-If current floor < destination floor
+		-raise hand/appendage. and press the arrow pointing up.
+- reverse one step
+- wait for elevator door to open:
+- when door opens wait 4 seconds for passengers to exit
+	-if elevator empty then enter elevator
+- Once inside elevator:
+	-Rotate 180 degrees
+	-approach button panel
+	-recall destination floor from memory:
+		-Press number on panel = destination floor
+-wait for doors to close and elevator to move
+	-if door opens
+  		-Determine current floor
+		-Adjust current floor in memory
+		- Check current floor
+	-If current floor = destination floor
+		-wait for doors to open and walk frward.
+2. Make cup of tea
+
+-take out Kettle
+	-
+- Begin to fill kettle with water
+	-If kettle 50% full
+		-stop fillin
+		
+		
+	
+
+
+
