@@ -1,4 +1,5 @@
-
+#paired with Nick Reis
+#method defines and comapres string gathere din ham_adopt variable
 def Ham_good(str)
   if (str == "Yes" || str == "Y")
     print "This hamster is fit for adoption"
@@ -6,9 +7,7 @@ def Ham_good(str)
     print "The Hamster is not fit for adoption"
   end
 end
-
-  
-    
+  #gathers all hamster meta data
 print "What is the hamsters name? "
 ham_name = gets.chomp
 
@@ -26,5 +25,5 @@ ham_age = gets.chomp
 if ham_age == ""
   ham_age = nil
 end
-
+#return bulk data in readbale format
 puts "#{Ham_good(ham_adopt)},this hamsters name is #{ham_name}. He/She has #{ham_color} colored fur and is roughly #{ham_age} years old. On a scale from 1-10 the hamster is a #{ham_noise} when it comes to noise."
