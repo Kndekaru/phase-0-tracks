@@ -1,3 +1,5 @@
+# Miles McArdle-Coe and Wellington Vicioso
+
 #1.Have method take a string for encryption
 #2.establish counter to end at -1 
 #3.loop through our string variable one at a time 
@@ -42,7 +44,9 @@ def decryption(str)
   str
 end
 
-puts "Would you like to encrypt or decrypt"
+p decryption(encryption("swordfish"))
+
+puts "Would you like to encrypt or decrypt?"
   passphrase = gets.chomp
 if passphrase != "encrypt" && passphrase != "decrypt"
   p "Invalid option"
@@ -58,4 +62,3 @@ elsif passphrase == "decrypt"
   p decryption(password)
 end
 
-decryption(encryption(swordfish))
