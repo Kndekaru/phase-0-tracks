@@ -1,14 +1,19 @@
 # Miles McArdle-coe
 #Gets input for vampire screening
 
+puts "How many employees will be processed?"
+potential_users = Integer(gets.chomp)
+
+until potential_users <= 0
+
 puts "what is your name?"
 name = gets.chomp
 
 puts "How old are you?"
-age =  gets.chomp
+age =  Integer(gets.chomp)
 
 puts " what year were you born?"
-birth_year = gets.chomp
+birth_year = Integer(gets.chomp)
 
 puts "Would you like and order of  garlic bread?"
 gar_bread = gets.chomp
@@ -30,7 +35,10 @@ age_correct = (DateTime.year - birth_year) == age
 	elsif 
 		puts "Inconclusive results"
 	end
-		
+
+
+	potential_users -= 1
+end 
 		
 
 
