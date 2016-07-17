@@ -1,6 +1,6 @@
 # Miles McArdle-coe
 #Gets input for vampire screening
-
+puts "answer in yes/no format when possible"
 puts "How many employees will be processed?"
 potential_users = Integer(gets.chomp)
 
@@ -16,17 +16,17 @@ puts " what year were you born?"
 birth_year = Integer(gets.chomp)
 
 puts "Would you like and order of  garlic bread?"
-gar_bread = gets.chomp
+gar_bread = gets.chomp == "yes"
 
 puts "Would you like to enroll in the company’s health insurance plan?"
-insurance = gets.chomp
+insurance = gets.chomp == "yes"
 
 #age correction to search for vampire
-age_correct = (DateTime.year - birth_year) == age
+age_correct = (2016 - birth_year) == age
 
 puts "Do you suffer from any allergies? Please type yes or no"
-allergy = gets.chomp == yes
-	if allergy == yes
+allergy = gets.chomp == "yes"
+	if allergy = "yes"
 		puts "List known allergies. when finsihed please type done"
 		allergy_list = gets.chomp
 			if allergy_list == "done"
@@ -52,7 +52,7 @@ allergy = gets.chomp == yes
 	potential_users -= 1
 end 
 
-prints  "Actually, never mind! What do these questions have to do with anything? Let's all be friends."
+puts "Actually, never mind! What do these questions have to do with anything? Let's all be friends."
 
 
 		
