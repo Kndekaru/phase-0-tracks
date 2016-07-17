@@ -48,7 +48,8 @@
 - Remove kettle from stove
 - Pour water in cup until 85% full
 	- if 85% full
-	- add sugar to taste
+	-break
+- add sugar to taste
 -enjoy
 
 		
