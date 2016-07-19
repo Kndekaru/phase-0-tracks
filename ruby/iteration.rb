@@ -22,3 +22,22 @@ Family = { "Peter" => "dad",
   }
 
 Family.each { |x,y| puts "#{x}: #{y}" }
+#release 2
+#1.
+#prime_numbers.delete_if { |x| x >= 5 }
+#puts prime_numbers
+#2.
+#keeps if value is equal to mom 
+#Family.keep_if {|x,y| y == "mom"}
+#puts Family
+
+#3
+#returns new hash with changes to reflect conditional statement if evalutated as true
+#Family.select! {|x,y| y == "sister" }
+#puts Family
+
+#4
+#returns new hash with changes to reflect conditional statement. In this case will remove "Brian" key and value because it is evaluated as true and the others as false. 
+#Family.reject! {|x,y| y == "dog"}
+#puts Family
+
