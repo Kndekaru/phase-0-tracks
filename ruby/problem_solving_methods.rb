@@ -1,3 +1,5 @@
+# Miles Mcardle-Coe & Wellington Vicioso
+
 #def search_array(num1)
 #  arr = [1, 2, 3, 4, 5]
 #   for i in arr
