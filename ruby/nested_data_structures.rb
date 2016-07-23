@@ -80,8 +80,9 @@ Hardware_store = {
 	},
 }
 
-
-#Hardware_store[:Hardware_dept][:Items][0]
-#Hardware_store[:Electrical_dept][:Items].push("lightbulbs")
-#Hardware_store[:Paint_dept][:Items]
+#call method in various levels of data structure 
+#p Hardware_store[:Hardware_dept][:Items][0]
+#p Hardware_store[:Electrical_dept][:Items].push("lightbulbs")
+#p Hardware_store[:Paint_dept][:Items]
+#p Hardware_store[:Hardware_dept][:Items].reverse
 
