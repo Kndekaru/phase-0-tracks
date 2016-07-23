@@ -1,5 +1,6 @@
 # Miles Mcardle-Coe & Wellington Vicioso
 
+#test code
 #def search_array(num1)
 #  arr = [1, 2, 3, 4, 5]
 #   for i in arr
@@ -16,7 +17,20 @@
 
 #p search_array(User_number)
 
+#to check our value we would set our final value equal to this number and have it return a statement saying that they are equal if in fact they are equal
 
+#array = []
+#def Fibseq(n)
+#  n>=n.to_i
+#  d=0
+#  e=1
+ # while d<n-1
+  #  yield d
+   # d,e = e,d+e
+    
+ # end
+#end
+#new method combining these two concepts
 def Fib(n)
   array = [0, 1]
   n = User_number - 2
@@ -32,20 +46,6 @@ n.times do
 return array 
 end
 
-#to check our value we would set our final value equal to this number and have it return a statement saying that they are equal if in fact they are equal
-
-
-#array = []
-#def Fibseq(n)
-#  n>=n.to_i
-#  d=0
-#  e=1
- # while d<n-1
-  #  yield d
-   # d,e = e,d+e
-    
- # end
-#end
 
 p "what number would you like to sequence"
 User_number = gets.chomp.to_i
@@ -80,9 +80,9 @@ p Fib(User_number)
 #have third variable become next position
 #repeat steps 4 and 5#
 #repeat until all items have been checked
-#repeat process until no positionsare swapped.
-
-  
+#repeat process until no positions are swapped.
+#if no swaps made break loop 
+ #bubble sort
 def bubble_sort(array)
   n = array.length
   loop do
