@@ -11,23 +11,23 @@
 #initlialize hash
 Client_info = {}
 #prompt user for info
-Puts "enter your name please"
-Client_info[name] = gets.chomp
+puts "enter your name please"
+Client_info[:name] = gets.chomp
 puts "enter your age"
-Client_info[age] = gets.chomp.to_i
+Client_info[:age] = gets.chomp.to_i
 puts "enter your number of children"
-Client_info[kids] = gets.chomp.to_i
+Client_info[:kids] = gets.chomp.to_i
 puts "enter your decor theme"
-Client_info[decor] = gets.chomp
+Client_info[:decor] = gets.chomp
 puts "enter your prefered retailer"
-Client_info[retail] = gets.chomp
+Client_info[:retail] = gets.chomp
 #return info to user
 p Client_info
 #ask to confirm informatipn
 puts "Is the information correct? If information is correct type Correct if information is incorrect type Incorrect"
 confirmation = gets.chomp
 	#check input
-	if confirmation = Correct
+	if confirmation == "Correct"
 		puts "congratulations your information has been added succesfully"
 	else 
 		puts "Please type incorrect key value"
