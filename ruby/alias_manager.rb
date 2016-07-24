@@ -18,7 +18,7 @@ end
 def modify_hash(alias_hash, name, new_name)
   alias_hash[name] = new_name
 end
-def create_alias(item_split)
+def create_alias(name_split)
   vowels = "aeiou"
   consonants = "bcdfghjklmnpqrstvwxy"
   item_split.map! do |string|
