@@ -1,2 +1,9 @@
+#pseudo code rough steps
 #ask user for all information
-#convert information into array
+#make empty hash
+#get all relevent info
+#convert information into hash
+#return info about client
+#ask client to update old hash info 
+#return edited info
+#check if info need update for final submititon to sata structure
