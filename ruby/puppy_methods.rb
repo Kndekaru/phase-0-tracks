@@ -1,3 +1,25 @@
+# Miles McArdle-Coe & Kimberly Suazo
+#outline from puppy clas
+#SPECIES ------------------------
+#Canis lupus familiaris
+
+#CHARACTERISTICS ----------------
+#Size: Large
+#Friendly: yes
+#Eye count: 2
+#Name: varies
+#Color: Brown,white,or black
+#Atheletic: Yes
+
+#BEHAVIOR -----------------------
+#Jump
+#Bark
+#Fetch
+#Play
+#Beg
+#Roll over
+
+#declare new class
 class Puppy
 
   def fetch(toy)
@@ -24,7 +46,7 @@ class Puppy
     item
   end
 end 
-
+#calls various class methods
 spot = Puppy.new 
 felix = Puppy.new
 
@@ -33,6 +55,21 @@ felix.speak(3)
 spot.roll_over
 spot.dog_years(4)
 felix.bury_toy("bone")
+
+#SPECIES ------------------------
+#Catty cat
+
+#CHARACTERISTICS ----------------
+#Size: small
+#Friendly: yes
+#Eye count: 2
+#Name: varies
+#Color: varies
+#Atheletic: no
+
+#BEHAVIOR -----------------------
+#Jump
+#Play
 
 class Cat
   
@@ -47,6 +84,9 @@ class Cat
     puts "The cat is playing with #{toy}"
   end
 end
+#create array and establish counter
+#counter starts at 0
+#loops break when counter at 50
 cat_array = []
 i = 0
 until i == 50
@@ -55,7 +95,7 @@ until i == 50
   cat_array << new_cat
   i += 1
 end
-
+#For all even jump counters print differnt toy.
 jump_count= 1
 cat_array.each do |y|
   y.jump(jump_count)
