@@ -1,6 +1,6 @@
 class Santa
-attr_reader
-attr_accessor :gender,:age,:ethnicity
+attr_reader :age,:ethnicity
+attr_accessor :gender,
 	def speak
 		puts 'Ho, ho, ho! Haaaappy holidays!'
 	end
@@ -18,12 +18,15 @@ attr_accessor :gender,:age,:ethnicity
 		@age += 1
 	end
 	def get_mad_at
+		rank = @reindeer_ranking.index(name)
+    @reindeer_ranking.insert(-1, @reindeer_ranking.delete_at(rank))
+
 	end
 =begin	
 	end
 	#getters ans setter
-	def gender=(example_genders)
-		@gender = example_genders
+	def gender=(new_genders)
+		@gender = new_genders
 	def age
 		@age
 	end
@@ -38,6 +41,11 @@ end
 #p Claus.speak
 #p Claus.eat_milk_and_cookies("chocolate chip")
 #santas = []
+# Claus.celebrate_birthday
+#Claus.get_mad_at("Rudolph")
+#Claus.gender = "female"
+#Claus.age
+# Claus.ethnicity
 example_genders = ["agender", "female", "bigender", "male", "female", "gender fluid", "N/A"]
 example_ethnicities = ["black", "Latino", "white", "Attack-helicopter", "prefer not to say", "Mystical Creature (unicorn)", "Congolese", "N/A"]
 X = 0
