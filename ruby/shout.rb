@@ -1,3 +1,4 @@
+=begin
 module Shout
  def self.yell_angrily(words)
     words + "!!!" + " :("
@@ -7,7 +8,31 @@ module Shout
   end
 end
 
-#test_words = "Whats going on"
+p Shout.yelling_happily("Stop")
+p Shout.yell_angrily("Hello")
+=end
+#release3 mixin
+module Shout
 
-p self.yelling_happily("Stop")
-p self.yell_angrily("Hello")
+  def yell_angrily(words)
+    puts words + " !*#@ !!!" + " :("
+  end
+
+    def yelling_happily(words)
+    puts words + " YAAAAY! " + " :)"
+  end
+
+end
+class Maniac
+  include Shout
+end
+
+class Kids_at_play
+  include Shout
+end
+
+yell_1= Maniac.new
+yell_1.yell_angrily("Use your turn signal")
+
+yell_2 = Kids_at_play.new
+yell_2.yelling_happily("This is fun")
