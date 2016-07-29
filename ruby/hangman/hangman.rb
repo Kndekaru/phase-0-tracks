@@ -1,45 +1,33 @@
 #miles MCardle-Coe
 #Create hangman style guessing game
-=begin
-create class called hangman
-	Def intialize method
-		make wrong try counter set to 0
-		create a pool of possible words in an array
-	end
-methiod shuffles array and selects word to be solution 
-	def solution
-		split word in array down to charcters and tarnsform all charcters into "-"
-	ends
-	puts "guess place_holder word with guessed letters
-	def this well be main logic loop
-		while true 
-			print "enter word or letter [chances - wrong try ] chances left"
-			character = getschomp
-		if word.include? char
-			if right guess includes  char
-				puts this has already been given
-				puts try again + place holder method 
-			else 
-				correct guess = correct guess + char
-				placeholder = placeholder method
-				puts awesome!  place holder
-		end
-		unless placeholder.incude "-"
-			puts Congrats you won!
-		break
-	end
-else
-puts "This word does not contain #{char}"
-wrong try +=1
-if wrong try == total chances
-	puts you lose!
-else
-	puts try again "placeholder method
-end
-end
-end
-=end
+class hangman
+	def initialize
+		@gChances = 0
+		@wrong_guess_counter = 0
+		@correct_guess = ' '
+		@word_pool = ["afraid", "priviledge","positive" ,"burnt","deception"]
+	end 
+	def place_holder samle_word, guessed_words
+		placeholder = " "
+		samplewords.chars { |chars| place_holder += (guessed_words.include)? char : '-'}
 
+		place_holder
+	end
+	def game_logic
+		while true 
+			"Please enter a word or letter you have [#{chances - wrong_guess_counter} try left!]"
+			char  = gets.chomp
+		if word.include? char
+			if (correct_guess.include? char)
+				puts char + "this answer has already been given!"
+				puts "Try another letter or word" + place_holder(word, correct_guess)
+			else
+				correct_guess = correct_guess + char
+				new_placeholder = place_holder(word,correct_guess)
+				puts "good answer" + new_placeholder
+			end
+			
+end
 
 
 
