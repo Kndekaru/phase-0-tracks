@@ -1,6 +1,6 @@
 #miles MCardle-Coe
 #Create hangman style guessing game
-class hangman
+class Hangman
 	def initialize
 		@gChances = 0
 		@wrong_guess_counter = 0
@@ -8,10 +8,10 @@ class hangman
 		@word_pool = ["afraid", "priviledge","positive" ,"burnt","deception"]
 	end 
 	def place_holder samle_word, guessed_words
-		placeholder = " "
-		samplewords.chars { |chars| place_holder += (guessed_words.include)? char : '-'}
+		new_placeholder = " "
+		samplewords.chars { |chars| new_placeholder += (guessed_words.include)? char : '-'}
 
-		place_holder
+		new_placeholder
 	end
 	def game_logic
 		while true 
@@ -26,10 +26,18 @@ class hangman
 				new_placeholder = place_holder(word,correct_guess)
 				puts "good answer" + new_placeholder
 			end
-			
+			unless new_placeholder.include? "-"
+				puts "you win!"
+			break
+		else
+			puts "try again" + place_holder(word,correct_guess)
+		end
+	end
+
 end
 
-
+yolo = Hangman.new
+p yolo
 
 
 
