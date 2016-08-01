@@ -55,6 +55,10 @@ until turn_counter == 7
         solve = gets.chomp
         if solve.chars == check_array
           puts "you win!!!!!!!"
+        break
+     	else
+     		puts "you lose!"
+     	break
         end
       end 
     if check_array.include? user_guess
