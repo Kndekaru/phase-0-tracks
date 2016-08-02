@@ -12,3 +12,16 @@ declare function
 
  call console.log and funtion on Hello
 */
+function reverse(str) {
+  var index = [];
+  if (str.length > 0){
+  for (var x = str.length - 1, y = 0; x >= 0; x--, y++)
+    index[x] = str[y];
+  return index.join('');
+	}
+}
+
+console.log(reverse("hello"));
+if (1==1) {
+	console.log(reverse("goodbye"));
+}
