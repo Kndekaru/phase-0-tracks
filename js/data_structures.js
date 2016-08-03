@@ -1,3 +1,21 @@
+
+var colors = ["blue", "red", "green", "yellow"];
+
+var names = ["Ed", "Jericho", "Boxer", "Epona"];
+
+colors.push("orange");
+names.push("Mr. Hoof");
+
+console.log(names)
+
+horses = {};
+
+for(var i = 0; i < names.length; i++) {
+  horses[names[i]] = colors[i];
+}
+console.log(horses)
+
+
 function Car(Model,price,brand,fuel_effieciency){
 
 	this.Model = Model;
