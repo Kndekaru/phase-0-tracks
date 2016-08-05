@@ -21,13 +21,15 @@ function longest_word(array) {
   return longest_word_temp;
 }
 //release 2
-function key_value_match(key1,key2)
-	
-s
+function key_value_match(key1, key2) {
+  return Object.keys(key1).reduce(function(map, k) {
+    if (key1[k] == key2[k]) map[k] = key2[k];
+    return map;
+  }, {});
+}
 
-
-
-
+conole.log(key_value_match({name: "Steven", age: 54}, {name: "Tamir", age: 54}));
 
 var colors = ["blue", "red", "green", "yellow"];
 console.log(longest_word(colors));
+
