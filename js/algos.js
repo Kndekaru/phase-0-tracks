@@ -29,7 +29,6 @@ function key_value_match(key1, key2) {
 }
 
 conole.log(key_value_match({name: "Steven", age: 54}, {name: "Tamir", age: 54}));
-
 var colors = ["blue", "red", "green", "yellow"];
 console.log(longest_word(colors));
 
