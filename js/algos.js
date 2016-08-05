@@ -8,6 +8,17 @@ create empty array to store longest
 		else 
 			longest item = longest word
 		print return value
-
-
 /*
+function longest_word(array) {
+    var longest_word_temp = "";
+  for (var i = 0; i < array.length; i++) {
+    if (array[i].length > longest_word_temp.length) {
+      longest_word_temp= array[i];
+    } else {
+      longest_item_temp = longest_word_temp;
+    }
+  }
+  return longest_word_temp;
+}
+var colors = ["blue", "red", "green", "yellow"];
+console.log(longest_word(colors));
