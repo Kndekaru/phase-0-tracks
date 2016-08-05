@@ -20,5 +20,14 @@ function longest_word(array) {
   }
   return longest_word_temp;
 }
+//release 2
+function key_value_match(key1,key2)
+	
+s
+
+
+
+
+
 var colors = ["blue", "red", "green", "yellow"];
 console.log(longest_word(colors));
