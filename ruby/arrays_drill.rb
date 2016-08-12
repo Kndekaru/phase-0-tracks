@@ -1,3 +1,15 @@
+#release 2 
+def array_maker(val1,val2,val3)
+	p [val1,val2, val3] 
+end 
+def array_adder(array,item)
+	holder_array = array
+	holder_array << item
+	p holder_array
+end
+
+
+#release 1
 #initilialize and prnt empty array
 new_array = []
 p new_array
@@ -27,3 +39,8 @@ pets = ['Cat', 'Dog', 'Bird']
 #Add the two arrays together and store them in a new variable. Print the new array.
 combined_array = pets + new_array
 p combined_array
+
+
+array_maker(1,2,3)
+
+array_adder([],4)
