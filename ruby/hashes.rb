@@ -1,5 +1,4 @@
 #pseudo code rough steps
-#ask user for all information
 #make empty hash
 #get all relevent info
 #convert information into hash
@@ -24,16 +23,21 @@ Client_info[:retail] = gets.chomp
 #return info to user
 p Client_info
 #ask to confirm informatipn
+
 puts "Is the information correct? If information is correct type Correct if information is incorrect type Incorrect"
 confirmation = gets.chomp
 	#check input
+
 	if confirmation == "Correct"
 		puts "congratulations your information has been added succesfully"
 	else 
 		puts "Please type incorrect key value"
+		p "Your option of keys includes the selection below" 
+		p Client_info.each_key {|key| puts key}
 		change_key = gets.chomp
-		puts "Please ente correct information"
+		p "Please enter correct information"
 		new_info = gets.chomp
 		Client_info[change_key.to_sym] = new_info
 	end
-p Client_info 
+print "thank you for using the program"
+print Client_info 
