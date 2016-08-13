@@ -79,10 +79,15 @@ Hardware_store = {
 		]
 	},
 }
-
+#driver code
 #call method in various levels of data structure 
 #p Hardware_store[:Hardware_dept][:Items][0]
 #p Hardware_store[:Electrical_dept][:Items].push("lightbulbs")
 #p Hardware_store[:Paint_dept][:Items]
 #p Hardware_store[:Hardware_dept][:Items].reverse
+#if  Hardware_store[:Paint_dept][:Items].include? "Tint"
+#	puts true
+#end
+#Hardware_store.each_value{|value| puts value }
+
 
