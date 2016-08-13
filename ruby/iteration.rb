@@ -18,6 +18,7 @@ end
  p odd_numbers
  p Pets
 Pets.each { |x,y| puts "#{x}: #{y}" }
+=begin
 release 2
 test_array  = [2,435,24356,8,23,34,1,2,3,5634234]
 1.A method that iterates through the items, deleting any that meet a certain condition (for example, deleting any numbers that are less than 5).
@@ -37,3 +38,4 @@ Pets.select! {|x,y| y == "Cat"}
 4.
 test_array.reject! {|x| x == 2 }
 p test_array
+=end 
