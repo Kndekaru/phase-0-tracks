@@ -3,7 +3,19 @@ pseudocode
 define method to take a string 
 use .split and reverse to set a new variables  
 print variable to display flipped name.
---
+---
+release 2
+refactored code for split to fit vowel/consonant change method.
+start a loop do 
+take user inut 
+have loop break when user types quit
+create variable set equal to user input to take .downcase.split(' ')
+use .reverse to flip array values
+  iterate through new array using .map! 
+  pass putput to alias vreator methd vowel/consonant
+push to storage array methods
+
+---
 define method for vowel/consinant swap to take a split string
 declare vowels and consonants as a string value 
 use .map to to check the strings
@@ -45,7 +57,7 @@ end
 def add_to_hash(storage_hash, name, new_name)
   storage_hash[name] = new_name
 end
-
+#prints each key-value pair
 def name_print(storage_hash)
   storage_hash.each do |key, value|
     puts "#{key} is now known as #{value}."
@@ -53,6 +65,7 @@ def name_print(storage_hash)
 end
 storage_hash = {}
 #loop to take multiple names until quit is typed
+Create a loop 
 loop do
   puts "Please enter the name you wish to hide!? (When complete type 'quit')"
   name = gets.chomp
