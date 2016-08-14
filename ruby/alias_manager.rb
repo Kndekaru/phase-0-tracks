@@ -40,7 +40,8 @@ def alias_creator(name_split)
     end
   end
 end
-storage_hash = {}
+#release 1 & 2
+#add values to hash to be printed by second method
 def add_to_hash(storage_hash, name, new_name)
   storage_hash[name] = new_name
 end
@@ -50,7 +51,8 @@ def name_print(storage_hash)
     puts "#{key} is now known as #{value}."
    end
 end
-
+storage_hash = {}
+#loop to take multiple names until quit is typed
 loop do
   puts "Please enter the name you wish to hide!? (When complete type 'quit')"
   name = gets.chomp
