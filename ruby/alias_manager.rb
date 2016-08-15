@@ -65,7 +65,6 @@ def name_print(storage_hash)
 end
 storage_hash = {}
 #loop to take multiple names until quit is typed
-Create a loop 
 loop do
   puts "Please enter the name you wish to hide!? (When complete type 'quit')"
   name = gets.chomp
