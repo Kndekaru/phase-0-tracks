@@ -1,4 +1,6 @@
 class Santa
+attr_reader :age,:ethinicity
+attr_accessor :gender
 	def speak
 		print "Ho, ho, ho! Haaaappy holidays!"
 	end 
@@ -8,7 +10,9 @@ class Santa
 	def celebrate_birthday
 	end 
 	def get_mad_at
-	end 
+	end
+#getter setter methods
+=begin	 
 	def age
 		@age 
 	end
@@ -18,7 +22,7 @@ class Santa
 	def gender=(new_gender)
 		@gender = new_gender
 	end 
-
+=end
 	def initialize(gender,ethnicity)
 		print "Initializing Santa instance ..."
 		@gender =  gender
@@ -43,9 +47,12 @@ example_ethnicities = ["black", "Latino","Zhuang","Bihari", "white", "Japanese-A
 	end
 p santas
 p miles
-test.gender = "cis.male"
-=end 
-getter = Santa.new("Female","White")
 
-p getter.age
-p getter.ethnicty
+=end 
+#getter an setters
+test =  Santa.new("agender", "black")
+getter = Santa.new("Female","White")
+#p getter.age
+#p getter.ethnicity
+test.gender = "cis.male"
+p test.gender
