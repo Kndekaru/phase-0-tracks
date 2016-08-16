@@ -28,17 +28,24 @@ class Santa
 	end 
 end
 
-test =  Santa.new("agender", "black")
 
-#p test.speak
-#p test.eat_milk_and_cookies("sugar cookie")
-#miles = Santa.new("agender", "black")
-#santas = []
-#example_genders = ["agender", "female", "bigender", "male", "female", "gender fluid","Transsexual","Androgyne", "N/A"]
-#example_ethnicities = ["black", "Latino","Zhuang","Bihari", "white", "Japanese-African", "prefer not to say","Sundanese" ,"Mystical Creature (unicorn)", "N/A"]
-#	example_genders.length.times do |i|
- # 	santas << Santa.new(example_genders[i], example_ethnicities[i])
-#	end
-#p santas
-#p miles
+#driver code
+=begin
+test =  Santa.new("agender", "black")
+p test.speak
+p test.eat_milk_and_cookies("sugar cookie")
+miles = Santa.new("agender", "black")
+santas = []
+example_genders = ["agender", "female", "bigender", "male", "female", "gender fluid","Transsexual","Androgyne", "N/A"]
+example_ethnicities = ["black", "Latino","Zhuang","Bihari", "white", "Japanese-African", "prefer not to say","Sundanese" ,"Mystical Creature (unicorn)", "N/A"]
+	example_genders.length.times do |i|
+ 	santas << Santa.new(example_genders[i], example_ethnicities[i])
+	end
+p santas
+p miles
 test.gender = "cis.male"
+=end 
+getter = Santa.new("Female","White")
+
+p getter.age
+p getter.ethnicty
