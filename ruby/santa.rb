@@ -32,7 +32,7 @@ attr_accessor :gender
 	end 
 end
 example_genders = ["agender", "female", "bigender", "male", "female", "gender fluid","Transsexual","Androgyne", "N/A"]
-example_ethnicities = ["black", "Latino","Zhuang","Bihari", "white", "Japanese-African", "prefer not to say","Sundanese" ,"Mystical Creature (unicorn)", "N/A"]
+example_ethnicities = ["black", "Latino","Zhuang","Bihari", "white", "Japanese-African","attack-helicopter", "prefer not to say","Sundanese" ,"Mystical Creature (unicorn)", "N/A"]
 
 #driver code
 =begin
@@ -58,13 +58,13 @@ test.gender = "cis.male"
 p test.gender
 =end
 #use .sample to gen random element from array
-X = 0
-	until X == 50
+y = 1
+50.times do |x|
 		santa_roster = Santa.new(example_genders.sample,example_ethnicities.sample)
-		puts "Attributes of santa #{X}"
+		puts "Attributes of santa #{y}"
 		puts "Age:#{santa_roster.age}"
 		puts "Gender:#{santa_roster.gender}"
 		puts "Enthnicity:#{santa_roster.ethnicity}"
 		puts "-----------------------------------------"
-		X += 1
+		y += 1
 	end
