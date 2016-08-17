@@ -81,5 +81,19 @@ remove_item('soup',shopping_list)
 update_quantity("cake",4,shopping_list)
 list_print(shopping_list)
 =end 
-
+=begin
+#Release 5
+What did you learn about pseudocode from working on this challenge?
+Pseusocode can be very helpful for conceptually developing code your code as well as speeding up the time it takes to write the actual code.
+What are the tradeoffs of using arrays and hashes for this challenge?
+An array wouldnt be able to take in the multiple values assccited with string in the code.This is why a hash would be idea for this task
+What does a method return?
+A method returns the last declared variable in the method.It will not return the value outside the method unless explicitly called
+What kind of things can you pass into methods as arguments?
+Methods can take other methods or variables as arguements
+How can you pass information between methods?
+You could use global variables but a better option would be calling the return in the last step of a method  that allows them to exits ouide the scope of a variable.
+What concepts were solidified in this challenge, and what concepts are still confusing?
+I feel like the mentalilty behind pseudocode become more clear as well as scope of methods and passing information between them became more clear.
+=end
 
