@@ -41,19 +41,27 @@ end
 
 def add_item(item,quantity,shopping_list)
   shopping_list[item] = quantity
-  p shopping_list
+  list_print(shopping_list)
 end
 
 def remove_item(item,shopping_list)
+  if shopping_list.include?(item)
   shopping_list.delete(item)
-  p shopping_list
+    else
+    puts "item is not in the list"
+  end
+   list_print(shopping_list)
 end
 def update_quantity(item,quantity,shopping_list)
+  if shopping_list.include?(item) 
   shopping_list[item] =  quantity
-  p shopping_list
+ list_print(shopping_list)
+    else
+    puts "item is not in the list"
+  end
 end 
 def list_print(shopping_list)
-  "--------Shopping List--------"
+  puts "--------Shopping List--------"
   shopping_list.each do |x,y|
     puts " #{x} , #{y} "
   end
@@ -73,4 +81,5 @@ remove_item('soup',shopping_list)
 update_quantity("cake",4,shopping_list)
 list_print(shopping_list)
 =end 
+
 
