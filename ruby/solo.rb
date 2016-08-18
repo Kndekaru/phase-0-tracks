@@ -17,3 +17,27 @@
 	end method
 =end	
 
+
+class Car
+
+	def initialize
+	"Car has been created"
+	@Make = "Ford"
+	@model = "Focus"
+	@milage = 75000
+	end
+
+	def travel(int)
+		updated_milage = @milage + int
+		updated_milage
+	end
+	def repair(string)
+		"#{string} has been repaired on your #{@Make} #{@Model}"
+	end
+
+	def car_start
+		"The car has started succesfuly"
+	end
+
+end
+
