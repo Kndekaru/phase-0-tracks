@@ -66,7 +66,7 @@ end
 # puts car.crash 
 car_lot = []
 
-5.times do
+50.times do
   car = Cars.new
   car_lot << car
 end
@@ -77,6 +77,6 @@ car_lot.each do |car|
     if car.drive(rand(90)) > 60
       puts "you are going too fast"
     else
-      puts "you are following th speed limit"
+      puts "you are following the speed limit"
     end 
 end
