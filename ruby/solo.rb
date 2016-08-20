@@ -24,17 +24,17 @@ class Car
 	attr_accessor :Make, :Model, :Year, :Milage
 	attr_reader :colors
 	def initialize(make,model,year,milage)
-	puts "Car has been created"
-	@make = make
-	@year =  year
-	@model = model
-	@milage = milage
-	@colors = ["red","black","blue","green","beige","white"]
+		puts "Car has been created"
+		@make = make
+		@year =  year
+		@model = model
+		@milage = milage
+		@colors = ["red","black","blue","green","beige","white"]
 	end
 	def car_colors
-	p "Your #{@Make} comes in these colors below" 
-	@colors.each do |color|
-		puts color
+		p "Your #{@Make} comes in these colors below" 
+		@colors.each do |color|
+			puts color
 	end
 	end
 
@@ -57,26 +57,27 @@ p new.car_colors
 p new.travel(4000)
 p new.repair("tailgate")
 p new.car_start
+test = Car.new('Ford','Focus',1994,75000)
+puts test.colors
 =end
 puts "How many vehicles do you wish to enter? please enter an integer "
 vehicle_count = gets.chomp.to_i
 counter = 0
 garage = []
-p @colors
 until counter == vehicle_count
-puts "Enter the make of the vehicle"
-user_make = gets.chomp
-puts "Enter the model of the vehicle"
-user_model = gets.chomp
-puts "Please enter production year"
-user_year =  gets.chomp
-puts "Please enter vehicle milage Milage"
-user_milage = gets.chomp
-new_car = Car.new(user_make,user_model,user_year,user_milage)
-garage << new_car
-counter += 1
-p "car has been created"
-p "-------------------------------------------------------------"
+	puts "Enter the make of the vehicle"
+	user_make = gets.chomp
+	puts "Enter the model of the vehicle"
+	user_model = gets.chomp
+	puts "Please enter production year"
+	user_year =  gets.chomp
+	puts "Please enter vehicle milage Milage"
+	user_milage = gets.chomp
+	new_car = Car.new(user_make,user_model,user_year,user_milage)
+	garage << new_car
+	counter += 1
+	p "car has been created"
+	p "-------------------------------------------------------------"
 end 
 p "all cars have been enter to the garage!"
 p garage
