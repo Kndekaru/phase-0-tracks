@@ -26,8 +26,8 @@ class Car
 	def initialize(make,model,year,milage)
 		puts "Car has been created"
 		@make = make
-		@year =  year
 		@model = model
+		@year =  year
 		@milage = milage
 		@colors = ["red","black","blue","green","beige","white"]
 	end
@@ -71,9 +71,10 @@ until counter == vehicle_count
 	user_model = gets.chomp
 	puts "Please enter production year"
 	user_year =  gets.chomp
-	puts "Please enter vehicle milage Milage"
+	puts "Please enter vehicle milage"
 	user_milage = gets.chomp
 	new_car = Car.new(user_make,user_model,user_year,user_milage)
+	p new_car.car_colors
 	garage << new_car
 	counter += 1
 	p "car has been created"
@@ -81,3 +82,4 @@ until counter == vehicle_count
 end 
 p "all cars have been enter to the garage!"
 p garage
+#p garage [1]
