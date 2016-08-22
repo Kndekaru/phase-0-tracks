@@ -13,3 +13,7 @@ function reverse(str) {
   return index.join('');
 	}
 }
+console.log(reverse("hello"));
+if (1==1) {
+	console.log(reverse("goodbye"));
+}
