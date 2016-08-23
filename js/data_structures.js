@@ -1,42 +1,43 @@
+var colors = ["blue","red","green","yellow"];
 
-var colors = ["blue", "red", "green", "yellow"];
+var names =  ["ed","jericho","Boxer","Epona"];
 
-var names = ["Ed", "Jericho", "Boxer", "Epona"];
-
-colors.push("orange");
-names.push("Mr. Hoof");
+colors.push("Orange");
+names.push("Calvin");
 
 console.log(names)
 
-horses = {};
+var horses = {};
 
-for(var i = 0; i < names.length; i++) {
+for(var i = 0; i <names.length; i++) {
   horses[names[i]] = colors[i];
 }
 console.log(horses)
 
-
-function Car(Model,price,brand,fuel_effieciency){
-
-	this.Model = Model;
-	this.price = price;
-	this.brand = brand;
-	this.fuel_effieciency;
-	this.sound = function() { console.log ("Vroom Vroom");};
+function car (make, model, price,fuel_efficiency) {
+  console.log("car:", this);
+  this.make = make;
+  this.model = model;
+  this.price = price;
+  this.fuel_efficiency;
+  this.noise = function() {
+    console.log("zoom");
+  };
 }
 
-var acar = new Car ("focus",12000,"Ford",true);
-console.log(acar);
-acar.sound();
+var test_car = new car  ("ford", "focus", 15000,true)
+console.log(test_car)
 
-var another_car = new Car ("raptor",27000,"Ford",false);
-console.log(another_car);
-another_car.sound();
+var test_car_two = new car ("toyota", "corolla", 14000, true)
+console.log(test_car_two)
+test_car.noise();
 
-for (var key in another_car) {
-if (another_car.hasOwnProperty(key)) {
-	console.log(key + " -> " + another_car[key]);
-	}
+var test_car = new car  ("ford", "focus", 27000,true)
+console.log(test_car)
+
+
+for (var key in test_car) {
+  if (test_car.hasOwnProperty(key)) {
+    console.log(key + "->" + test_car[key]);
+  }
 }
-
-
