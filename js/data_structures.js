@@ -1,4 +1,5 @@
-var colors = ["blue","red","green","yellow"];
+//Miles McArdle-coe & Natalie Liles
+Var colors = ["blue","red","green","yellow"];
 
 var names =  ["ed","jericho","Boxer","Epona"];
 
