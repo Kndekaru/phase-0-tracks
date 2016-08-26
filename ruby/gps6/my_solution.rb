@@ -94,3 +94,8 @@ end
 
 #=======================================================================
 # Reflection Section
+# the rocket syntax must be used for the states because they are not symbols. The other syntax of key: value can be used for the nested hash because symbols are used as keys
+#require_relative  allows us to pull data/code from another file in some cases another directory and allows the infiormation to be used together.Require allows us to allows us to pull code from built in ruby features rather than indicated files. 
+# few ways to iterate through a hash are using the built it .each and .map methods, the former will loop through each key value pair without modifyinig the hash while the latter is a destructive version 
+#What was odd was that they called instance variables as parameters even though when we had them initialized in a method. having them called through the program was redundant.
+#the concepts i solidified the most was my understanding of require and require_relative and how they differ cn cause the program to behave. i also became more clear  about scope and how private effects the data in our class nd how we can navigate around that to make working code as well as how different e;ements of our code can be given state.
