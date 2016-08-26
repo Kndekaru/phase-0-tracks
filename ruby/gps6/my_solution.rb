@@ -1,12 +1,13 @@
+#Miles McArdle-Coe Hadjir Mashiri
 # Virus Predictor
 
 # I worked on this challenge [by myself, with: ].
 # We spent [#] hours on this challenge.
 
 # EXPLANATION OF require_relative
-#
-#
-require_relative 'state_data'
+# while in the same directory it allows two files to access each others information.
+# Require works in a simialr way when we dont have a relative or absolute path  path it will search for the file in $LOAD PATH.
+ require_relative 'state_data'
 
 class VirusPredictor
 
