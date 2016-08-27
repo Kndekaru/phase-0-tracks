@@ -23,3 +23,11 @@
   iterate through the string
   if index value of string character is equal to another rturn the value that evaluate as true.
   if index values dont match return that there are no matches/ false
+*/
+   function key_value_match(key1, key2){
+  for (var i in key1) {
+    if (key1[i] == key2[i]) {return true}
+  }
+  return false;
+  
+ }
