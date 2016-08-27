@@ -19,3 +19,7 @@
    }
    return longest_word_temp;
 }
+/*create function key match 
+  iterate through the string
+  if index value of string character is equal to another rturn the value that evaluate as true.
+  if index values dont match return that there are no matches/ false
