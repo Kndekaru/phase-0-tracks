@@ -30,10 +30,44 @@
   }
   return false; 
  }
-
+ /* Release 2
+ pseudo code 2 functions one for the word generator ad the second to push a string to a new array
+ create function that takes an integer
+  Create a variable of upper and lowercase alphabet
+  Create a storage variale
+  Assign a return variable to iterate through array and select a letter randomly
+  Print return variable
+ second function takes integer
+  set empty array variable
+  for loop each string in array push to new empty array callign result from first function
+  return previously empty variable
+ */ 
+ 
+ function word_gen (integer){
+  var symbol_pool = "0123456789abcdefghijklmnopqrstuvwxyzACDEFGHIJKLMNOPQRSTUVWXYZ";
+  var word_storage = "";
+  for (var i = 0; i < integer; i++) {
+    word_storage += symbol_pool[Math.floor(Math.random()*symbol_pool.length)];
+  }
+  return word_storage;
+ }
+ 
+ function string_array (integer){
+  var array_result = [];
+  for (var i =0; i < integer; i++) {
+    array_result.push(word_gen(Math.ceil(Math.random()*10)));
+  }
+  return array_result;
+ }
   //driver code
  test1 = {name: "Tamir", age: 54}
  test2 = {name: "Steven", age: 54}
  key_value_match(test1,test2)
  var colors = ["blue", "red", "green", "yellow"];
  console.log(long_word(colors));
+ word_gen(3)
+ string_array(10)
+ //release2 driver
+ for (var i = 0; i < 10; i++){
+  console.log(long_word(string_array(10)));
+ }
