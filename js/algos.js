@@ -28,6 +28,12 @@
   for (var i in key1) {
     if (key1[i] == key2[i]) {return true}
   }
-  return false;
-  
+  return false; 
  }
+
+  //driver code
+ test1 = {name: "Tamir", age: 54}
+ test2 = {name: "Steven", age: 54}
+ key_value_match(test1,test2)
+ var colors = ["blue", "red", "green", "yellow"];
+ console.log(long_word(colors));
