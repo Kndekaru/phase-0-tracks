@@ -1,11 +1,11 @@
 require 'sqlite3'
 
 #create sqlite database
-db = sqlite3::Database.new("finance_manager")
+db = SQLite3::Database.new("finance_manager.db")
 
 
-create_finances = <<-SQL
-	CREATE TABLE IF NOT EXISTS finances(
+create_finances = <<-Finances
+	CREATE TABLE IF NOT EXISTS Finances(
 	id Integer PRIMARY KEY,
 	Debit_id INTEGER,
 	Credit_id INTEGER,
@@ -14,10 +14,10 @@ create_finances = <<-SQL
 	FOREIGN KEY (Credit_id) REFERENCES Credits(id),
 	FOREIGN KEY (Balance_id) REFERENCES Balance(id)
 	)
-SQL
+Finances
 
 
-create_Debits = <<-SQL
+create_Debits = <<-Debits
 CREATE TABLE IF NOT EXISTS Debits(
 id Integer PRIMARY KEY,
 price BLOB,
@@ -25,9 +25,9 @@ business VARCHAR(255),
 time_of_purchase datetime,
 debit_memo VARCHAR(255)
 )
-SQL
+Debits
 
-create_Credits = <<-SQL
+create_Credits = <<-Credits
 CREATE TABLE IF NOT EXISTS Credits(
 id Integer PRIMARY KEY,
 credit_amount BLOB,
@@ -35,15 +35,14 @@ business_company VARCHAR(255),
 time_of_purchase datetime,
 credit_memo VARCHAR(255)
 )
-SQL
+Credits
 
-create_Balance = <<-SQL
+create_Balance = <<-Balance
 CREATE TABlE IF NOT EXISTS Balance(
 id INTEGER PRIMARY KEY,
 current_balance blob
 )
-SQL 
-
+Balance
 db.execute(create_finances)
 db.execute(create_Debits)
 db.execute(create_Credits)
