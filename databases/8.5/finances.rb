@@ -47,3 +47,37 @@ db.execute(create_finances)
 db.execute(create_Debits)
 db.execute(create_Credits)
 db.execute(create_Balance)
+
+
+
+puts  "welcome to your personal finances manager!"\
+"Here you can record credits and debits to your account as well as check its balance as well."\
+
+puts "Type (credit) or (debit) to record a transaction or (balance) to check your balance"
+
+finance_query = gets.chomp
+
+def transaction_identifier(finance_query)
+	if finance_query == "credit"
+		record_debit
+	elsif finance_query == "debit"
+		record_credit
+	elsif finance_query == "balance"
+		check_balance
+	else 
+		puts "Inalid option! Please type credit ,debit or  balance"
+	end 
+end 
+
+
+def record_debit
+	p "1"
+end 
+
+def record_credit
+	 p "2"
+end 
+
+def check_balance
+	puts "3"
+end 
