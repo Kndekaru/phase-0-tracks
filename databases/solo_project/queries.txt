@@ -1,0 +1,218 @@
+release 1
+entry and table creation based on schema
+
+create table store_items (
+id integer primary key,
+item_name varchar(255),
+price blob,
+department_id int,
+foreign key(department_id) references departments(id)
+);
+
+
+create table departments(
+id integer primary key,
+name varchar(255)
+);
+
+
+insert into departments (name) values ("electrical");
+insert into departments (name) values ("paint");
+insert into departments (name) values ("plumbing");
+insert into departments (name) values ("hardware");
+
+
+insert into store_items (item_name,price,department_id) values ("lag bolt","$0.25",4);
+insert into store_items (item_name,price,department_id) values ("electrical tape","$0.99",1);
+insert into store_items (item_name,price,department_id) values ("Flux","$15.99",1);
+insert into store_items (item_name,price,department_id) values ("paint can","$1.50",2);
+insert into store_items (item_name,price,department_id) values ("paint brush","$5.99",2);
+insert into store_items (item_name,price,department_id) values ("plunger","$7.99",3);
+insert into store_items (item_name,price,department_id) values ("hex driver","$1.75",4);
+insert into store_items (item_name,price,department_id) values ("clear glaze","$6.25",2);
+insert into store_items (item_name,price,department_id) values ("electrical nut","$0.25",1);
+insert into store_items (item_name,price,department_id) values ("pex pipe","$5.99",3);
+insert into store_items (item_name,price,department_id) values ("pipe cutter","$35.99",3);
+insert into store_items (item_name,price,department_id) values ("door hinge","$6.75",4);
+
+release 2
+ 
+1.Display the information in one table (either table is fine)
+
+select * from store_items;
+
+1|lag bolt|$0.25|4
+2|electrical tape|$0.99|1
+3|Flux|$15.99|1
+4|paint can|$1.50|2
+5|paint brush|$5.99|2
+6|plunger|$7.99|3
+7|hex driver|$1.75|4
+8|clear glaze|$6.25|2
+9|electrical nut|$0.25|1
+10|pex pipe|$5.99|3
+11|pipe cutter|$35.99|3
+12|door hinge|$6.75|4
+
+2.Update an item that meets some condition (you can choose a condition that makes sense).
+
+update store_items set price="$6.99" where item_name="pex pipe";
+
+no output however calling select * from store_items; returns updated table showing change
+
+
+1|lag bolt|$0.25|4
+2|electrical tape|$0.99|1
+3|Flux|$15.99|1
+4|paint can|$1.50|2
+5|paint brush|$5.99|2
+6|plunger|$7.99|3
+7|hex driver|$1.75|4
+8|clear glaze|$6.25|2
+9|electrical nut|$0.25|1
+10|pex pipe|$6.99|3
+11|pipe cutter|$35.99|3
+12|door hinge|$6.75|4
+
+3. Display the information in both tables using one query.
+
+
+select * from store_items, departments where store_items.department_id = departments.id;
+
+1|lag bolt|$0.25|4|4|hardware
+2|electrical tape|$0.99|1|1|electrical
+3|Flux|$15.99|1|1|electrical
+4|paint can|$1.50|2|2|paint
+5|paint brush|$5.99|2|2|paint
+6|plunger|$7.99|3|3|plumbing
+7|hex driver|$1.75|4|4|hardware
+8|clear glaze|$6.25|2|2|paint
+9|electrical nut|$0.25|1|1|electrical
+10|pex pipe|$6.99|3|3|plumbing
+11|pipe cutter|$35.99|3|3|plumbing
+12|door hinge|$6.75|4|4|hardware
+
+4. Display a narrower selection of columns (fewer columns than all of them, in other words) from both tables using one query.
+
+SELECT store_items.item_name, departments.name FROM store_items JOIN departments ON store_items.department_id = departments.id;
+
+lag bolt|hardware
+electrical tape|electrical
+Flux|electrical
+paint can|paint
+paint brush|paint
+plunger|plumbing
+hex driver|hardware
+clear glaze|paint
+electrical nut|electrical
+pex pipe|plumbing
+pipe cutter|plumbing
+door hinge|hardware
+
+5.Delete an item that meets some condition (you can choose a condition that makes sense).
+
+delete from store_items where item_name="Flux";
+
+yields no return however again checking tables with select * from store_items; returns updated table showing change
+
+1|lag bolt|$0.25|4
+2|electrical tape|$0.99|1
+4|paint can|$1.50|2
+5|paint brush|$5.99|2
+6|plunger|$7.99|3
+7|hex driver|$1.75|4
+8|clear glaze|$6.25|2
+9|electrical nut|$0.25|1
+10|pex pipe|$6.99|3
+11|pipe cutter|$35.99|3
+
+release 3
+1.There are lots of different kinds of joins. What are they? Can you apply different conditions to a join to change what's displayed? Can you bookmark any good diagrams that will help you tell different joins apart in the future?
+
+
+The CROSS JOIN A CROSS JOIN matches every row of the first table with every row of the second table. If the input tables have x and y columns, respectively, the resulting table will have x*y columns. Because CROSS JOINs have the potential to generate extremely large tables, care must be taken to only use them when appropriate.
+
+The INNER JOIN A INNER JOIN creates a new result table by combining column values of two tables (table1 and table2) based upon the join-predicate. The query compares each row of table1 with each row of table2 to find all pairs of rows which satisfy the join-predicate. When the join-predicate is satisfied, column values for each matched pair of rows of A and B are combined into a result row.
+An INNER JOIN is the most common type of join and is the default type of join. You can use INNER keyword optionally.
+
+The OUTER JOIN The OUTER JOIN is an extension of the INNER JOIN. Though SQL standard defines three types of OUTER JOINs: LEFT, RIGHT, and FULL but SQLite only supports the LEFT OUTER JOIN.
+The OUTER JOINs have a condition that is identical to INNER JOINs, expressed using an ON, USING, or NATURAL keyword. The initial results table is calculated the same way. Once the primary JOIN is calculated, an OUTER join will take any unjoined rows from one or both tables, pad them out with NULLs, and append them to the resulting table.
+
+
+conditonals can be applied to inner and outer joins and syntacticaly belong at the end ofthe comamnd for example in an inner join it looks like this SELECT ... FROM table1 [INNER] JOIN table2 ON conditional_expression ...
+and in an outer join our conditional syntax looks like this SELECT ... FROM table1 LEFT OUTER JOIN table2 ON conditional_expression ..
+2. Try a few different joins in your database, and record the commands and the output in queries.txt.
+
+Cross join
+
+
+select department_id, name, price from store_items cross join departments;
+
+4|electrical|$0.25
+4|paint|$0.25
+4|plumbing|$0.25
+4|hardware|$0.25
+1|electrical|$0.99
+1|paint|$0.99
+1|plumbing|$0.99
+1|hardware|$0.99
+2|electrical|$1.50
+2|paint|$1.50
+2|plumbing|$1.50
+2|hardware|$1.50
+2|electrical|$5.99
+2|paint|$5.99
+2|plumbing|$5.99
+2|hardware|$5.99
+3|electrical|$7.99
+3|paint|$7.99
+3|plumbing|$7.99
+3|hardware|$7.99
+4|electrical|$1.75
+4|paint|$1.75
+4|plumbing|$1.75
+4|hardware|$1.75
+2|electrical|$6.25
+2|paint|$6.25
+2|plumbing|$6.25
+2|hardware|$6.25
+1|electrical|$0.25
+1|paint|$0.25
+1|plumbing|$0.25
+1|hardware|$0.25
+3|electrical|$6.99
+3|paint|$6.99
+3|plumbing|$6.99
+3|hardware|$6.99
+3|electrical|$35.99
+3|paint|$35.99
+3|plumbing|$35.99
+3|hardware|$35.99
+4|electrical|$6.75
+4|paint|$6.75
+4|plumbing|$6.75
+4|hardware|$6.75
+
+
+inner join/natural join
+
+select department_id, item_name, price from store_items inner join departments on store_items.id = departments.id;
+
+4|lag bolt|$0.25
+1|electrical tape|$0.99
+2|paint can|$1.50
+
+
+outer join
+
+4|$0.25
+1|$0.99
+2|$1.50
+2|$5.99
+3|$7.99
+4|$1.75
+2|$6.25
+1|$0.25
+3|$6.99
+3|$35.99
+4|$6.75
