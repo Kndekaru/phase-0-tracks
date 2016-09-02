@@ -58,22 +58,27 @@ user_balance =  gets.chomp
 		db.execute("INSERT INTO Balance (current_balance) VALUES (?)",[user_balance])
 	end 
 
+puts "Enter any key to add another debit,credit or balance check. Type done when finsihed."
+application_status = gets.chomp
+while application_status != "done"
+	
 puts "Type (credit) or (debit) to record a transaction or (balance) to check your balance"
-
 finance_query = gets.chomp.to_s
 	if finance_query == "debit"
-		#puts "How many transactions do you have to enter?"
-			puts "Enter the transaction amount"
-			debit_price = gets.chomp.to_f
-			puts "Enter business or comapny amount was payed to"
-			debit_business = gets.chomp
-			puts "Enter time of purchase"
-			debit_time = gets.chomp
-			puts "add a comment regarding transaction"
-			debit_memo = gets.chomp
-
-	db.execute("INSERT INTO Debits (price,business,time_of_purchase,debit_memo) VALUES (?,?,?,?)",[debit_price,debit_business,debit_time,debit_memo])
-	db.execute("UPDATE Balance set current_balance = current_balance - (?) where id = last_insert_rowid()",[debit_price])
+		puts "How many transactions do you have to enter?"
+		debit_queries = gets.chomp.to_i
+			debit_queries.times do 
+				puts "Enter the transaction amount"
+				debit_price = gets.chomp.to_f
+				puts "Enter business or comapny amount was payed to"
+				debit_business = gets.chomp
+				puts "Enter time of purchase"
+				debit_time = gets.chomp
+				puts "add a comment regarding transaction"
+				debit_memo = gets.chomp
+				db.execute("INSERT INTO Debits (price,business,time_of_purchase,debit_memo) VALUES (?,?,?,?)",[debit_price,debit_business,debit_time,debit_memo])
+				db.execute("UPDATE Balance set current_balance = current_balance - (?) where id = last_insert_rowid()",[debit_price])
+			end 
 
 	elsif finance_query == "credit"
 		puts "Enter amount credited to account"
@@ -86,9 +91,11 @@ finance_query = gets.chomp.to_s
 		credit_memo = gets.chomp
 		db.execute("INSERT INTO Credits (credit_amount,business_company, time_of_purchase,credit_memo) VALUES (?,?,?,?)",[credit_price,credit_company,credit_time,credit_memo])
 		db.execute("UPDATE Balance set current_balance = current_balance + (?) where id = last_insert_rowid()",[credit_price])
-		#p db.execute("SELECT last_insert_rowid() from Balance")
 	elsif finance_query == "balance"
-		#p db.execute("SELECT last_insert_rowid() from Balance")
-		#p db.execute("SELECT * from Balance where id = (SELECT MAX(id) from Balance")
 		p db.execute("SELECT * FROM Balance ORDER BY ID DESC LIMIT 1")
 	end 
+	puts "Enter any key to add another debit,credit or balance check. Type done when finsihed."
+	application_status = gets.chomp
+end 
+
+print "thanks for using this to track you finances."
