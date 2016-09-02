@@ -56,18 +56,40 @@ puts  "welcome to your personal finances manager!"\
 puts "Type (credit) or (debit) to record a transaction or (balance) to check your balance"
 
 finance_query = gets.chomp.to_s
+	if finance_query == "debit"
+		puts "Enter the transaction amount"
+		price = gets.chomp
+		puts "Enter business or comapny amount was payed to"
+		business = gets.chomp
+		puts "Enter time of purchase"
+		time = gets.chomp
+		puts "add a comment regarding transaction"
+		memo = gets.chomp
+	db.execute("INSERT INTO Debits (price,business,time_of_purchase,debit_memo) VALUES (?,?,?,?)",[price,business,time,memo])
+	elsif finance_query == "credit"
+		puts "Enter amount credited to account"
+		credit_price = gets.chomp
+		puts "Enter comapny crediting account"
+		credit_company = gets.chomp
+		puts "Enter time amoutn was credited"
+		puts credit_time = gets.chomp
+		puts "Enter credit memo"
+		credit_memo = gets.chomp
+		db.execute("INSERT INTO Credits (credit_amount,business_company, time_of_purchase,credit_memo) VALUES (?,?,?,?)",[credit_price,credit_company,credit_time,credit_memo])
+	end 
 
-def transaction_identifier(str)
-	if str == "debit"
+=begin
+#def transaction_identifier(str)
+	if finance_query == "debit"
 		record_debit(db)
-	elsif str == "credit"
+	elsif finance_query == "credit"
 		record_credit
-	elsif str == "balance"
+	elsif finance_query == "balance"
 		check_balance
 	else 
 		puts "Inalid option! Please type credit ,debit or  balance"
 	end 
-end 
+#end 
 
 def record_debit(db)
 	puts "Enter the transaction amount"
@@ -81,13 +103,16 @@ def record_debit(db)
 	
 db.execute("INSERT INTO Debits (price,business,time_of_purchase,debit_memo) VALUES (?,?,?,?)",[price,business,time,memo])
 end  
-def record_credit
+def record_credit()
 	 p "2"
 end 
 
-def check_balance
+def check_balance()
 	puts "3"
 end 
 
 #transaction_identifier(finance_query)
 record_debit(db)
+record_credit()
+create_Balance()
+=end
