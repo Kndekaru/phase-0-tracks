@@ -74,9 +74,6 @@ finance_query = gets.chomp.to_s
 
 	db.execute("INSERT INTO Debits (price,business,time_of_purchase,debit_memo) VALUES (?,?,?,?)",[debit_price,debit_business,debit_time,debit_memo])
 	db.execute("UPDATE Balance set current_balance = current_balance - (?) where id = last_insert_rowid()",[debit_price])
-	#p db.execute("select last_insert_rowid()")
-	#p db.execute("SELECT last_insert_rowid() from Balance")
-	#p db.execute("SELECT current_balance from Balance where id = (SELECT MAX(id) from Balance")
 
 	elsif finance_query == "credit"
 		puts "Enter amount credited to account"
@@ -95,44 +92,3 @@ finance_query = gets.chomp.to_s
 		#p db.execute("SELECT * from Balance where id = (SELECT MAX(id) from Balance")
 		p db.execute("SELECT * FROM Balance ORDER BY ID DESC LIMIT 1")
 	end 
-
-		
-
-=begin
-#def transaction_identifier(str)
-	if finance_query == "debit"
-		record_debit(db)
-	elsif finance_query == "credit"
-		record_credit
-	elsif finance_query == "balance"
-		check_balance
-	else 
-		puts "Inalid option! Please type credit ,debit or  balance"
-	end 
-#end 
-
-def record_debit(db)
-	puts "Enter the transaction amount"
-	price = gets.chomp
-	puts "Enter business or comapny amount was payed to"
-	business = gets.chomp
-	puts "Enter time of purchase"
-	time = gets.chomp
-	puts "add a comment regarding transaction"
-	memo = gets.chomp
-	
-db.execute("INSERT INTO Debits (price,business,time_of_purchase,debit_memo) VALUES (?,?,?,?)",[price,business,time,memo])
-end  
-def record_credit()
-	 p "2"
-end 
-
-def check_balance()
-	puts "3"
-end 
-
-#transaction_identifier(finance_query)
-record_debit(db)
-record_credit()
-create_Balance()
-=end
