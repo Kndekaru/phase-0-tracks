@@ -40,7 +40,7 @@ Credits
 create_Balance = <<-Balance
 CREATE TABlE IF NOT EXISTS Balance(
 id INTEGER PRIMARY KEY,
-current_balance blob
+current_balance float
 )
 Balance
 db.execute(create_finances)
@@ -53,19 +53,27 @@ db.execute(create_Balance)
 puts  "welcome to your personal finances manager!"\
 "Here you can record credits and debits to your account as well as check its balance as well."\
 
+puts "If this is your first time using this application enetr your bank account balance"
+#user_balance =  gets.chomp.to_f
+
+
 puts "Type (credit) or (debit) to record a transaction or (balance) to check your balance"
 
 finance_query = gets.chomp.to_s
 	if finance_query == "debit"
 		puts "Enter the transaction amount"
-		price = gets.chomp
+		debit_price = gets.chomp
 		puts "Enter business or comapny amount was payed to"
-		business = gets.chomp
+		debit_business = gets.chomp
 		puts "Enter time of purchase"
-		time = gets.chomp
+		debit_time = gets.chomp
 		puts "add a comment regarding transaction"
-		memo = gets.chomp
-	db.execute("INSERT INTO Debits (price,business,time_of_purchase,debit_memo) VALUES (?,?,?,?)",[price,business,time,memo])
+		debit_memo = gets.chomp
+	db.execute("INSERT INTO Debits (price,business,time_of_purchase,debit_memo) VALUES (?,?,?,?)",[debit_price,debit_business,debit_time,debit_memo])
+	db.execute("INSERT INTO Balance (current_balance) values (?)",[debit_price])
+	db.execute("UPDATE balance set current_balance = current_balance - (?) where id = last_insert_rowid()",[debit_price])
+	db.execute("select last_insert_rowid()")
+
 	elsif finance_query == "credit"
 		puts "Enter amount credited to account"
 		credit_price = gets.chomp
@@ -76,7 +84,11 @@ finance_query = gets.chomp.to_s
 		puts "Enter credit memo"
 		credit_memo = gets.chomp
 		db.execute("INSERT INTO Credits (credit_amount,business_company, time_of_purchase,credit_memo) VALUES (?,?,?,?)",[credit_price,credit_company,credit_time,credit_memo])
+	elsif finance_query == "balance"
+		db.execute("SELECT last_insert_rowid()")
 	end 
+
+		
 
 =begin
 #def transaction_identifier(str)
