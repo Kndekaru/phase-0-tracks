@@ -20,7 +20,7 @@ Finances
 create_Debits = <<-Debits
 CREATE TABLE IF NOT EXISTS Debits(
 id Integer PRIMARY KEY,
-price BLOB,
+price FLOAT,
 business VARCHAR(255), 
 time_of_purchase datetime,
 debit_memo VARCHAR(255)
@@ -30,7 +30,7 @@ Debits
 create_Credits = <<-Credits
 CREATE TABLE IF NOT EXISTS Credits(
 id Integer PRIMARY KEY,
-credit_amount BLOB,
+credit_amount FLOAT,
 business_company VARCHAR(255), 
 time_of_purchase datetime,
 credit_memo VARCHAR(255)
@@ -55,25 +55,32 @@ puts  "welcome to your personal finances manager!"\
 
 puts "Type (credit) or (debit) to record a transaction or (balance) to check your balance"
 
-finance_query = gets.chomp
+finance_query = gets.chomp.to_s
 
-def transaction_identifier(finance_query)
-	if finance_query == "credit"
-		record_debit
-	elsif finance_query == "debit"
+def transaction_identifier(str)
+	if str == "debit"
+		record_debit(db)
+	elsif str == "credit"
 		record_credit
-	elsif finance_query == "balance"
+	elsif str == "balance"
 		check_balance
 	else 
 		puts "Inalid option! Please type credit ,debit or  balance"
 	end 
 end 
 
-
-def record_debit
-	p "1"
-end 
-
+def record_debit(db)
+	puts "Enter the transaction amount"
+	price = gets.chomp
+	puts "Enter business or comapny amount was payed to"
+	business = gets.chomp
+	puts "Enter time of purchase"
+	time = gets.chomp
+	puts "add a comment regarding transaction"
+	memo = gets.chomp
+	
+db.execute("INSERT INTO Debits (price,business,time_of_purchase,debit_memo) VALUES (?,?,?,?)",[price,business,time,memo])
+end  
 def record_credit
 	 p "2"
 end 
@@ -81,3 +88,6 @@ end
 def check_balance
 	puts "3"
 end 
+
+#transaction_identifier(finance_query)
+record_debit(db)
