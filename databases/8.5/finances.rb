@@ -3,7 +3,6 @@ require 'sqlite3'
 #create sqlite database
 db = SQLite3::Database.new("finance_manager.db")
 
-
 create_finances = <<-Finances
 	CREATE TABLE IF NOT EXISTS Finances(
 	id Integer PRIMARY KEY,
@@ -53,39 +52,48 @@ db.execute(create_Balance)
 puts  "welcome to your personal finances manager!"\
 "Here you can record credits and debits to your account as well as check its balance as well."\
 
-puts "If this is your first time using this application enetr your bank account balance"
-#user_balance =  gets.chomp.to_f
-
+puts "If this is your first time using this application enetr your bank account balance if this isnt your first time using this aplication type continue"
+user_balance =  gets.chomp
+ 	if user_balance != "continue"
+		db.execute("INSERT INTO Balance (current_balance) VALUES (?)",[user_balance])
+	end 
 
 puts "Type (credit) or (debit) to record a transaction or (balance) to check your balance"
 
 finance_query = gets.chomp.to_s
 	if finance_query == "debit"
-		puts "Enter the transaction amount"
-		debit_price = gets.chomp
-		puts "Enter business or comapny amount was payed to"
-		debit_business = gets.chomp
-		puts "Enter time of purchase"
-		debit_time = gets.chomp
-		puts "add a comment regarding transaction"
-		debit_memo = gets.chomp
+		#puts "How many transactions do you have to enter?"
+			puts "Enter the transaction amount"
+			debit_price = gets.chomp.to_f
+			puts "Enter business or comapny amount was payed to"
+			debit_business = gets.chomp
+			puts "Enter time of purchase"
+			debit_time = gets.chomp
+			puts "add a comment regarding transaction"
+			debit_memo = gets.chomp
+
 	db.execute("INSERT INTO Debits (price,business,time_of_purchase,debit_memo) VALUES (?,?,?,?)",[debit_price,debit_business,debit_time,debit_memo])
-	db.execute("INSERT INTO Balance (current_balance) values (?)",[debit_price])
-	db.execute("UPDATE balance set current_balance = current_balance - (?) where id = last_insert_rowid()",[debit_price])
-	db.execute("select last_insert_rowid()")
+	db.execute("UPDATE Balance set current_balance = current_balance - (?) where id = last_insert_rowid()",[debit_price])
+	#p db.execute("select last_insert_rowid()")
+	#p db.execute("SELECT last_insert_rowid() from Balance")
+	#p db.execute("SELECT current_balance from Balance where id = (SELECT MAX(id) from Balance")
 
 	elsif finance_query == "credit"
 		puts "Enter amount credited to account"
-		credit_price = gets.chomp
+		credit_price = gets.chomp.to_f
 		puts "Enter comapny crediting account"
 		credit_company = gets.chomp
-		puts "Enter time amoutn was credited"
+		puts "Enter time amount was credited"
 		puts credit_time = gets.chomp
 		puts "Enter credit memo"
 		credit_memo = gets.chomp
 		db.execute("INSERT INTO Credits (credit_amount,business_company, time_of_purchase,credit_memo) VALUES (?,?,?,?)",[credit_price,credit_company,credit_time,credit_memo])
+		db.execute("UPDATE Balance set current_balance = current_balance + (?) where id = last_insert_rowid()",[credit_price])
+		#p db.execute("SELECT last_insert_rowid() from Balance")
 	elsif finance_query == "balance"
-		db.execute("SELECT last_insert_rowid()")
+		#p db.execute("SELECT last_insert_rowid() from Balance")
+		#p db.execute("SELECT * from Balance where id = (SELECT MAX(id) from Balance")
+		p db.execute("SELECT * FROM Balance ORDER BY ID DESC LIMIT 1")
 	end 
 
 		
