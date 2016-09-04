@@ -141,6 +141,10 @@ The OUTER JOINs have a condition that is identical to INNER JOINs, expressed usi
 
 conditonals can be applied to inner and outer joins and syntacticaly belong at the end ofthe comamnd for example in an inner join it looks like this SELECT ... FROM table1 [INNER] JOIN table2 ON conditional_expression ...
 and in an outer join our conditional syntax looks like this SELECT ... FROM table1 LEFT OUTER JOIN table2 ON conditional_expression ..
+
+
+http://www.tutorialspoint.com/sqlite/sqlite_using_joins.htm hows a good collection of the joins and how they are formatted.
+
 2. Try a few different joins in your database, and record the commands and the output in queries.txt.
 
 Cross join
