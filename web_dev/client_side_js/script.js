@@ -43,5 +43,5 @@ changeAllElementsOfType();
 
 var para = document.createElement("p");                       // Create a <p> element
 var t = document.createTextNode("This is a paragraph");       // Create a text node
-para.appendChild(t);                                          // Append the text to <p>
+para.appendChild(t);                                         // Append the text to <p>
 document.body.appendChild(para); 
