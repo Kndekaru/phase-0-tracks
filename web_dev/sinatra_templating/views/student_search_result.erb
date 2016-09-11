@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>This is the result</title>
+</head>
+<body>
+
+    <%= @student_result %>
+        <% @item.each do |x| %> <!-- Or whatever variable you would like to pass -->
+        <%= x[:name] %> <!-- You can do this however many times you would like -->
+    <% end %>
+</div>
+</body>
+</html>
